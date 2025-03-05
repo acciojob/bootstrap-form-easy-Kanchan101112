@@ -12,7 +12,7 @@
             padding: 20px;
             background-color: #f9f9f9;
 		}
-		h2 {
+		h2{
     text-align: center;
 }
 		form {
@@ -68,40 +68,40 @@ select:invalid + .error-message {
   <h2>Internship Form</h2>
     
     <form id="internship-form">
-        <label for="first-name-input">First Name:</label>
+        <label for="first-name-input" class="form-control">First Name:</label>
         <input type="text" id="first-name-input" required>
-        <span class="error-message">First name required</span>
+        <span class="invalid-feedback">First name required</span>
 
         <label for="last-name-input">Last Name:</label>
         <input type="text" id="last-name-input" required>
-        <span class="error-message">Last name required</span>
+        <span class="invalid-feedback">Last name required</span>
 
         <label for="email-input">Email Address:</label>
         <input type="email" id="email-input" required>
-        <span class="error-message">Email required</span>
+        <span class="invalid-feedback">Email required</span>
 
         <label for="college-input">College:</label>
         <input type="text" id="college-input" required>
-        <span class="error-message">Please provide a valid college.</span>
+        <span class="invalid-feedback">Please provide a valid college.</span>
 
-        <label for="graduation-year">Graduation Year:</label>
-        <select id="graduation-year" required>
+        <label for="for=grad-year-select">Graduation Year:</label>
+        <select id="for=grad-year-select" required>
             <option value="">Choose...</option>
             <option value="2020">2020</option>
             <option value="2021">2021</option>
             <option value="2022">2022</option>
             <option value="2023">2023</option>
         </select>
-        <span class="error-message">Please select a valid Graduation Year.</span>
+        <span class="invalid-feedback">Please select a valid Graduation Year.</span>
 
         <label for="roll-no-input">Roll No.:</label>
         <input type="text" id="roll-no-input" required>
-        <span class="error-message">Please provide a valid Roll No.</span>
+        <span class="invalid-feedback">Please provide a valid Roll No.</span>
 
-        <label>
+        <label  class="form-label">
             <input type="checkbox" id="conditions-checkbox" required> Agree to terms and conditions
         </label>
-        <span class="error-message">You must agree before submitting</span>
+        <span class="invalid-feedback">You must agree before submitting</span>
 
         <button type="submit">Submit form</button></form>
     <script type="text/javascript" src="./script.js">
