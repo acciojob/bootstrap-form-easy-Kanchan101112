@@ -1,112 +1,104 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-	    <title>Internship Form</title>
-	<style>
-		body{
-			font-family: Arial, sans-serif;
-			margin: 40px;
-            padding: 20px;
-            background-color: #f9f9f9;
-		}
-		h2{
-    text-align: center;
-}
-		form {
-    max-width: 500px;
-    margin: 0 auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-		label {
-    display: block;
-    margin: 10px 0 5px;
-}
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-		
-button {
-    width: 100%;
-    padding: 10px;
-    background: blue;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: darkblue;
-}
-input:invalid + .error-message,
-select:invalid + .error-message {
-    display: block;
-    color: red;
-    font-size: 12px;
-    margin-top: -8px;
-}
-
-/* Hide error message initially */
-.error-message {
-    display: none;
-}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-  <h2>Internship Form</h2>
-    
-    <form id="internship-form">
-        <label for="first-name-input" class="form-control">First Name:</label>
-        <input type="text" id="first-name-input" required>
-        <span class="invalid-feedback">First name required</span>
+    <div class="container mt-5">
+        <form id="internship-form" novalidate>
+            <!-- First Name -->
+            <div class="mb-3">
+                <label class="form-label" for="first-name-input">First Name:</label>
+                <input type="text" id="first-name-input" class="form-control" required>
+                <span class="invalid-feedback">Please enter your first name.</span>
+            </div>
 
-        <label for="last-name-input">Last Name:</label>
-        <input type="text" id="last-name-input" required>
-        <span class="invalid-feedback">Last name required</span>
+            <!-- Last Name -->
+            <div class="mb-3">
+                <label class="form-label" for="last-name-input">Last Name:</label>
+                <input type="text" id="last-name-input" class="form-control" required>
+                <span class="invalid-feedback">Please enter your last name.</span>
+            </div>
 
-        <label for="email-input">Email Address:</label>
-        <input type="email" id="email-input" required>
-        <span class="invalid-feedback">Email required</span>
+            <!-- Email -->
+            <div class="mb-3">
+                <label class="form-label" for="email-input">Email Address:</label>
+                <input type="email" id="email-input" class="form-control" required>
+                <span class="invalid-feedback">Please provide a valid email.</span>
+            </div>
 
-        <label for="college-input">College:</label>
-        <input type="text" id="college-input" required>
-        <span class="invalid-feedback">Please provide a valid college.</span>
+            <!-- College -->
+            <div class="mb-3">
+                <label class="form-label" for="college-input">College:</label>
+                <input type="text" id="college-input" class="form-control" required>
+                <span class="invalid-feedback">Please provide a valid college.</span>
+            </div>
 
-        <label for="for=grad-year-select">Graduation Year:</label>
-        <select id="for=grad-year-select" required>
-            <option value="">Choose...</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-        </select>
-        <span class="invalid-feedback">Please select a valid Graduation Year.</span>
+            <!-- Graduation Year -->
+            <div class="mb-3">
+                <label class="form-label" for="grad-year-select">Graduation Year:</label>
+                <select id="grad-year-select" class="form-control" required>
+                    <option value="">Choose...</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                </select>
+                <span class="invalid-feedback">Please select a valid Graduation Year.</span>
+            </div>
 
-        <label for="roll-no-input">Roll No.:</label>
-        <input type="text" id="roll-no-input" required>
-        <span class="invalid-feedback">Please provide a valid Roll No.</span>
+            <!-- Roll No. -->
+            <div class="mb-3">
+                <label class="form-label" for="roll-no-input">Roll No.:</label>
+                <input type="text" id="roll-no-input" class="form-control" required>
+                <span class="invalid-feedback">Please provide a valid Roll No.</span>
+            </div>
 
-        <label  class="form-label">
-            <input type="checkbox" id="conditions-checkbox" required> Agree to terms and conditions
-        </label>
-        <span class="invalid-feedback">You must agree before submitting</span>
+            <!-- Terms & Conditions -->
+            <div class="mb-3 form-check">
+                <input type="checkbox" id="conditions-checkbox" class="form-check-input" required>
+                <label class="form-check-label" for="conditions-checkbox">
+                    Agree to terms and conditions
+                </label>
+                <span class="invalid-feedback">You must agree before submitting.</span>
+            </div>
 
-        <button type="submit">Submit form</button></form>
-    <script type="text/javascript" src="./script.js">
-</script>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Submit form</button>
+        </form>
+    </div>
 
+    <!-- JavaScript Validation -->
+    <script>
+        document.getElementById('internship-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            let isValid = true; // Track form validity
+            let inputs = this.querySelectorAll("input, select");
+
+            // Loop through all inputs
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    isValid = false;
+                    input.classList.add('is-invalid');  // Show error styling
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');  // Show success styling
+                }
+            });
+
+            // If the form is valid, allow submission
+            if (isValid) {
+                alert("Form submitted successfully!"); // Mock success message
+                this.submit();
+            }
+        });
+    </script>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
